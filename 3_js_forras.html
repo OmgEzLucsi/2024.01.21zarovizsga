@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Unit teszt feladat</title>
+	<script type="text/javascript">
+		
+	
+	function kivalogatParosOtven(array) {
+    
+    var eredmeny = [];
+
+   
+    for (var i = 0; i < array.length; i++) {
+       
+        if (array[i] % 2 === 0 && array[i] > 50) {
+           
+            eredmeny.push(array[i]);
+        };
+    };
+    
+    return eredmeny;
+};
+//pelda
+var eredmenyTomb = kivalogatParosOtven([10, 20, 3, 5, 100, 50, 60, 53]);
+console.log(eredmenyTomb); 
+
+
+function aBetukSzamaDiv() {
+    
+    var elsoDiv = document.querySelector('body div:first-child');
+
+    
+    var divText = elsoDiv.textContent || elsoDiv.innerText;
+
+    
+    var count = 0;
+
+   
+    for (var i = 0; i < divText.length; i++) {
+        
+        if (divText[i] === 'a') {
+            count++;
+        };
+    };
+
+    return count;
+};
+	
+
+function osszeadasFeliras(osztaly, elsoOperandus, masodikOperandus) {
+ 
+  var elsoElemek = document.querySelectorAll('.' + osztaly);
+
+ 
+  if (elsoElemek.length > 0) {
+    
+    elsoOperandus = Number(elsoOperandus);
+    masodikOperandus = Number(masodikOperandus);
+
+   
+    var elsoElemekMasolat = Array.from(elsoElemek);
+
+   
+    elsoElemekMasolat.forEach(function(elsoElem) {
+     
+      var osszeg = elsoOperandus + masodikOperandus;
+
+     
+      var ujParagrafus = document.createElement('p');
+      ujParagrafus.textContent = elsoOperandus + ' + ' + masodikOperandus + ' = ' + osszeg;
+
+    
+      elsoElem.appendChild(ujParagrafus);
+    });
+  };
+
+  
+  elsoElemek.forEach(function(elsoElem) {
+    console.log(elsoElem.outerHTML);
+  });
+};
+
+
+osszeadasFeliras('eredmeny', 2, 3);
+
+
+
+
+
+
+
+	</script>
+
+	<script src="testBaseUnit.js"></script>
+</head>
+<body>
+    <div></div>
+	<hr>
+	<div id="testResult">
+	<h2>Tesztek</h2></div>
+</body>
+</html>
